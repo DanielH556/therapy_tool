@@ -1,0 +1,11 @@
+{
+  "name": "therapy_tool",
+  "version": "0.0.1",
+  "description": "Assisting tool for anxiety therapy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
