@@ -40,9 +40,10 @@ export default function Login() {
                <Link to="/create-account" className="btn btn-primary" type="submit">
                   Criar Conta
                </Link>
-               <Link className="btn btn-primary" to="/testPage" state={{cpf: cpf, password: password}}>
+               <Link className="btn btn-primary" to="/profile" state={{cpf: cpf, password: password}}>
                   Login
-               </Link><br /><br />
+               </Link>
+               <br /><br />
             </div>
          </div>
       </div>

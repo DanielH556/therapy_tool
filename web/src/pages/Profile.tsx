@@ -8,7 +8,20 @@ export default function Profile() {
    return(
       <div className="container">
          <Navbar />
-         <h1>profile pooooooooooooog</h1>
+         <table className='table table-striped table-hover'>
+            <tr>
+               <th>Nome</th>
+               <th>Sobrenome</th>
+               <th>CPF</th>
+               <th>Senha</th>
+            </tr>
+            <tr>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+            </tr>
+         </table>
       </div>
    )
 }
