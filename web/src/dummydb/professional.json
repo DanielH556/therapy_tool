@@ -1,0 +1,27 @@
+{
+   "professional1": {
+      "id": 1,
+      "name": "Juniper",
+      "surname": "Actias",
+      "cpf": "32165498709",
+      "email": "juniper.actias@gmail.com",
+      "password": "junact123",
+      "birthDate": "06/10/1983",
+      "phone": "978746684",
+      "cep": "94716040",
+      "crm": "1123445667"
+   },
+
+   "professional2": {
+      "id": 2,
+      "name": "Joseph",
+      "surname": "Biezigner",
+      "cpf": "75822495964",
+      "email": "josephbiez@outlook.com",
+      "password": "joebiez554",
+      "birthDate": "22/06/1990",
+      "phone": "962375224",
+      "cep": "76549080",
+      "crm": "8887462517"
+   }
+}
