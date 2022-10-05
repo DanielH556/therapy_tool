@@ -1,0 +1,14 @@
+{
+   "roles": {
+      "patient": {
+         "id": 1,
+         "name": "Patient",
+         "value": "patient"
+      },
+      "professional": {
+         "id": 2,
+         "name": "Therapist",
+         "value": "therapist"
+      }
+   }
+}
