@@ -44,7 +44,7 @@ export default function Navbar() {
                   {/* Botões de "Criar Conta" e "Login" */}
                   <div className='text-center'>
                      <Link to="/create-account" className='fw-semibold text-decoration-none px-5'>Criar Conta</Link>
-                     <Link to="/" className='fw-semibold text-decoration-none'>Login</Link>
+                     <Link to="/login" className='fw-semibold text-decoration-none'>Login</Link>
                   </div>
                </div>
             </div>

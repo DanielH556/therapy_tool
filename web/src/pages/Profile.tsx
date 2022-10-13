@@ -4,7 +4,6 @@ import React from 'react';
 
 // Importação de componentes
 import Navbar from '../components/Navbar'
-var logo = require('../public/icon.png')
 
 export default function Profile() {
    // const location = useLocation();
@@ -14,6 +13,13 @@ export default function Profile() {
    // const data = location.state?.cpf;
    // const datapass = location.state?.password;
 
+   function profilePicHandle() {
+      const imageStr = (document.getElementById('profpic') as HTMLInputElement).value;
+
+      console.log(imageStr)
+
+      document.getElementById('profile_pic')?.setAttribute('src', `${imageStr}`)
+   }
 
 
    const samplePatient = {
@@ -60,27 +66,12 @@ export default function Profile() {
    return(
       <div className="container-md">
          <Navbar />
-         {/* <table className='table table-striped table-hover'>
-            <tr>
-               <th>Nome</th>
-               <th>Sobrenome</th>
-               <th>CPF</th>
-               <th>Senha</th>
-            </tr>
-            <tr>
-               <td></td>
-               <td></td>
-               <td>{data}</td>
-               <td>{datapass}</td>
-            </tr>
-         </table> */}
-
-         <div className="container-md bg-dark bg-opacity-75 text-align-left">
-            <img src={logo} alt="Profile" style={{height:200}} className="start-0"/>
-            <input type="file" name="profpic" id="profpic" className='col-auto form-control-lg start-0' readOnly />
+         <div className="container-md text-align-left">
+            <img id="profile_pic" alt="Profile" style={{height:200}} className="start-0"/>
+            <input type="file" name="profpic" id="profpic" className='col-auto form-control-lg start-0' accept='.jpeg,.jpg,.png' onChange={profilePicHandle} readOnly />
          </div>
-
-         <div className='g-3 bg-dark bg-opacity-50'>
+         <br />
+         <div className='g-3'>
             <form>
                <div className="mb-3">
                   <div className="row">
