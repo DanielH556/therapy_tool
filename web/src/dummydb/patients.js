@@ -1,5 +1,5 @@
-{
-   "patient1": {
+export const patients = [
+   {
       "id": 1,
       "name": "Daniel Eiji",
       "surname": "Hattori Hossaki",
@@ -12,7 +12,7 @@
       "cep": "04771050"
    },
 
-   "patient2": {
+   {
       "id": 1,
       "name": "Lorem",
       "surname": "Ipsum",
@@ -24,4 +24,4 @@
       "phoneNumber": "973856173",
       "cep": "12345678"
    }
-}
+]
