@@ -1,52 +1,62 @@
+// Importações de Bibliotecas e Objetos
 import * as express from 'express';
 import Patient from 'models/patient';
+import patientsRepository from '../repositories/patients-repository';
 
 const patientRouter = express.Router();
 
-patientRouter.post('/patients', (req, res) => {
+// POST de pacientes
+patientRouter.post('/patient', (req, res) => {
    const patient: Patient = req.body;
    //TODO: Criar e salvar um paciente
-   const id = 123;
-   res.status(201).location(`/patients/${id}`).send()
-});
-
-patientRouter.get('/patients', (req, res) => {
-   const patients: Patient[] = [
-      {
-         id: 1,
-         name: 'Daniel',
-         password: '123456',
-         cpf: '49307944806'
-      },
-      {
-         id: 2,
-         name: 'Juniper',
-         password: '098765',
-         cpf: '1237685019'
+   patientsRepository.criar(patient, (id) => {
+      if(id) {
+         res.status(201).location(`/patients/${id}`).send()
+      } else {
+         res.status(400).send()
       }
-   ];
-   res.json(patients);
+   });
 });
 
+// Receber todos os pacientes 
+patientRouter.get('/patients', (req, res) => {
+   patientsRepository.lerTodos((patients) => res.json(patients));
+});
+
+// Receber o paciente de acordo com o ID
 patientRouter.get('/patients/:id', (req, res) => {
+   // Tratativa de ID do paciente
    const id: number = +req.params.id
-   const patient: Patient = {
-      id: id,
-      name: `Patient ${id}`,
-      password: `PW from Patient ${id}`,
-      cpf: `CPF from Patient ${id}`
-   };
-   res.json(patient);
+
+   patientsRepository.ler(id, (patient) => {
+      if (patient) {
+         res.json(patient);
+      } else {
+         res.status(404).send();
+      }
+   });
 });
 
-patientRouter.put('/itens/:id', (req, res) => {
+patientRouter.put('/patients/:id', (req, res) => {
    const id: number = +req.params.id;
-   res.status(204).send();
+   patientsRepository.atualizar(id, req.body, (notFound) => {
+      if (notFound) {
+         res.status(404).send();
+      } else {
+         res.status(204).send();
+      }
+   })
 });
 
-patientRouter.delete('/itens/:id', (req, res) => {
+patientRouter.delete('/patients/:id', (req, res) => {
    const id: number = +req.params.id;
-   res.status(204).send()
+   patientsRepository.apagar(id, (notFound) => {
+      if (notFound) {
+         res.status(404).send();
+      } else {
+         res.status(204).send();
+      }
+   })
 });
 
 export default patientRouter;

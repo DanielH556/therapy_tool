@@ -1,33 +1,39 @@
+// Importação de Objetos e Bibliotecas
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
-// import * as patientRouter from './routes/patient-router';
 import * as cors from 'cors';
 import patientRouter from './routes/patient-router';
 
+// Definição e Instâncias de bibliotecas e porta
 const port = 3000;
 const app = express();
 const router = express.Router();
 
 // app.use(express.static(path.join(__dirname, 'client/build')))
 
+// Função de Log do middleware
 function loggerMiddleware(request: express.Request, response: express.Response, next: () => void) {
    console.log(`${request.method} | ${request.path}`);
    next();
 }
 
+// Instância de Middleware e configuração inicial de servidor
 app.use(loggerMiddleware);
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Path padrão
 app.get('/', (req, res) => {
    res.send('Hi :3');
 })
 
+// Definição de URL
 app.use(cors({
    origin: ['http://localhost:3000']
 }))
 
+// Instância de rotas da aplicação
 app.use('/api', patientRouter)
 
 app.use((req, res) => {
@@ -58,6 +64,7 @@ app.use((req, res) => {
 //    res.send(req.body);
 // });
 
+// Porta utilizada
 app.listen(port);
 
 console.log('App listening on port 3000');
