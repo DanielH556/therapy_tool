@@ -19,6 +19,11 @@ Para o desenvolvimento da aplicação, foram utilizadas diversas tecnologias e f
  - Typescript
  - React.js
  - React Router Dom v6
+ - Node.js
+ - Nodemon
+ - Express
+ - Bootstrap
+ - sqlite3
  - Git
 
 ---
