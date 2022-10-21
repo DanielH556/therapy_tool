@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "expo-cli": "^6.0.6",
+    "expo-cli": "^4.3.0",
     "node": "^19.0.0",
     "nodejs": "^0.0.0"
   }
