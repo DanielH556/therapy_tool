@@ -18,13 +18,15 @@ Para o desenvolvimento da aplicação, foram utilizadas diversas tecnologias e f
 ## Bibliotecas, Tecnologias e Ferramentas
  - Typescript
  - React.js
+ - React Native
  - React Router Dom v6
  - Node.js
  - Nodemon
  - Express
- - Bootstrap
- - sqlite3
- - Git
+ - Bootstrap (Estilização)
+ - Native Base (Estilização)
+ - Expo
+ - Git (Versionamento)
 
 ---
 
@@ -39,3 +41,9 @@ Para o desenvolvimento da aplicação, foram utilizadas diversas tecnologias e f
 2. Se necessário, instalar as dependências do gerenciador de pacotes `$ npm install`
 3. Executar a aplicação no terminal `$ npm start`
  - Endereço URL da aplicação será disponibilizado no terminal (geralmente será um endereço *localhost*)
+
+ ## Executar a Aplicação Mobile
+1. Entrar na pasta *web* `$ cd mobile/`
+2. Se necessário, instalar as dependências do gerenciador de pacotes `$ npm install`
+3. Executar a aplicação no terminal `$ npm start`
+ - Escanear código QR com aplicação "Expo Go"
