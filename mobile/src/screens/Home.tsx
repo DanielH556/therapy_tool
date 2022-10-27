@@ -1,25 +1,40 @@
+// Importação de Bibliotecas
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+import { List, ScrollView, HStack, Box, Divider, Text, VStack, Icon } from 'native-base';
 import { useNavigation } from '@react-navigation/native';
-import { BorderlessButton } from 'react-native-gesture-handler';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { MaterialCommunityIcons, Ionicons, Foundation, AntDesign, FontAwesome5, MaterialIcons } from '@expo/vector-icons'
 
-export default function Home() {
-   const navigation = useNavigation();
-
-   function handleGoToTest() {
-      navigation.navigate('Test');
-   }
+export default function Home({ navigation }: { navigation: StackNavigationProp<any> }) {
+   // Páginas / Telas
+   const pages = [
+      { name: 'Test', icon: <Foundation name="clipboard-notes" size={40} color="black" /> },
+      { name: 'Login', icon: <AntDesign name="poweroff" size={40} color="black" /> },
+      { name: 'Tarefas', icon: <FontAwesome5 name="tasks" size={40} color="black" /> },
+      { name: 'Criar Conta', icon: <AntDesign name="addusergroup" size={40} color="black" /> },
+      { name: 'Criar Tarefa', icon: <MaterialIcons name="add-task" size={40} color="black" /> }
+   ]
 
    return(
       <View>
-         <Text>HOME SCREEN POOOOOOOOOOOOOOOOOOOOOOOOG</Text>
-         <BorderlessButton onPress={handleGoToTest} style={{ padding: 10, backgroundColor: 'blue', width: 100 }}>
-            <Text style={{ color: 'white', fontSize: 30 }}>To Test</Text>
-         </BorderlessButton>
+         <ScrollView>
+            <List divider={<Divider ml={16} />} px={3} py={0} borderWidth={0} borderRightWidth={0} w="100%" maxW={"100%"}>
+               {
+                  pages.map((page, i) => {
+                     return <List.Item key={i} onPress={() => navigation.navigate(`${page.name}`, { name: page.name })} bg={'gray.200'} borderColor={'gray.300'} borderWidth={3} padding={5}
+                     >
+                     <VStack space={3} py={1} alignItems="center" justifyContent={"center"} w="100%">
+                        <Box>
+                           {page.icon}
+                        </Box>
+                        <Text fontSize={20}>{ page.name }</Text>
+                     </VStack>
+                  </List.Item>
+               })
+            }
+            </List>
+         </ScrollView>
       </View>
    )
 }
-
-const styles = StyleSheet.create({
-
-})
