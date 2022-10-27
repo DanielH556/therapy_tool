@@ -1,37 +1,62 @@
-import { PropertyDescriptorParsingType } from 'html2canvas/dist/types/css/IPropertyDescriptor';
+// Importação de Bibliotecas
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { Box, Heading, ScrollView, VStack, Text, Button } from 'native-base';
+import { BorderlessButton } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
 
-interface TaskProps {
-   text: string;
-}
+export default function Task() {
+   const navigation = useNavigation();
 
-export default function Task({text}: TaskProps) {
+   // Tarefas
+   const tasks = {
+      task1: {
+         id: 1,
+         name: "Task 1",
+      },
+      task2: {
+         id: 2,
+         name: "Task 2",
+      },
+      task3: {
+         id: 3,
+         name: "Task 3",
+      },
+      task4: {
+         id: 4,
+         name: "Task 4",
+      },
+      task5: {
+         id: 5,
+         name: "Task 5",
+      },
+      task6: {
+         id: 6,
+         name: "Task 6",
+      },
+      task7: {
+         id: 7,
+         name: "Task 7",
+      },
+   };
+
+   // Função de Adição de Nova Tarefa
+   function addTask() {
+      navigation.navigate('Criar Tarefa' as never);
+   }
+
    return(
-      <View style={styles.item}>
-         <View style={styles.itemLeft}>
-            <Text style={styles.itemText}>{text}</Text>
-         </View>
-      </View>
-   )
-
+      <Box alignItems={'center'} justifyContent={'center'}>
+         <Heading margin={30} borderBottomColor={'red.500'}>Tarefas</Heading>
+         <ScrollView>
+            <VStack alignItems={'center'}>
+               {
+                  Object.keys(tasks).map((key, index) => {
+                     return <BorderlessButton><Text fontSize={20} marginBottom={10}>{key}</Text></BorderlessButton>
+                  })
+               }
+            </VStack>
+         </ScrollView>
+         <Button onPress={addTask}>Adicionar Tarefa</Button>
+      </Box>
+   );
 }
-
-const styles = StyleSheet.create({
-   item: {
-      backgroundColor: "#FFF",
-      padding: 15,
-      flexDirection: "row",
-      alignItems: "center",
-      marginBottom: 20,
-   },
-      itemLeft: {
-      width: "100%",
-      flexDirection: "row",
-      alignItems: "center",
-      flexWrap: "wrap",
-   },
-      itemText: {
-      maxWidth: "80%",
-   },
-})
