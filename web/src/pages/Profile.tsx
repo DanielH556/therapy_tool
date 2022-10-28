@@ -2,8 +2,6 @@
 import React from 'react';
 // import { useLocation } from 'react-router-dom';
 
-// Importação de componentes
-import Navbar from '../components/Navbar'
 
 export default function Profile() {
    // const location = useLocation();
@@ -65,7 +63,6 @@ export default function Profile() {
 
    return(
       <div className="container-md">
-         <Navbar />
          <div className="container-md text-align-left">
             <img id="profile_pic" alt="Profile" style={{height:200}} className="start-0"/>
             <input type="file" name="profpic" id="profpic" className='col-auto form-control-lg start-0' accept='.jpeg,.jpg,.png' onChange={profilePicHandle} readOnly />

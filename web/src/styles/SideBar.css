@@ -1,0 +1,9 @@
+.itemLink {
+   text-decoration: none;
+   color: white;
+}
+
+.itemLink:hover {
+   background-color: rgba(82, 82, 82, 0.473);
+   color: white;
+}

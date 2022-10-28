@@ -1,0 +1,18 @@
+body {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+.topBarContainer {
+   background-color: #c5c5c5;
+   left: 0;
+   top: 0;
+   width: 100%;
+}
+
+.patientList {
+   text-align: left;
+   padding: 10px;
+   border-radius: 15px;
+}

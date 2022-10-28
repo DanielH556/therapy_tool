@@ -4,8 +4,10 @@ import { Box, Text, VStack, HStack, FormControl, Input, Slider, Button } from 'n
 import { useState } from 'react';
 
 export default function CreateTask() {
+   // Controle de estados
    const [importance, setImportance] = useState(0);
 
+   // Mudança de Label de Nível de Importância
    function handleSLider(level: number) {
       setImportance(Math.floor(level))
    }

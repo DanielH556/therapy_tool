@@ -7,9 +7,8 @@ import TestPage from './pages/TestPage';
 import Login from './pages/Login';
 import CreateAccount from './pages/CreateAccount';
 import Profile from './pages/Profile';
-import LoginForm from './pages/LoginForm';
-import LoginForm2 from './pages/LoginForm2';
 import Landing from './pages/Landing';
+import TherapistPanel from './pages/TherapistPanel'
 
 export default function Router() {
    return(
@@ -19,10 +18,10 @@ export default function Router() {
             <Route path="/" element={<Landing />} />
             <Route path="/login" element={<Login />}></Route>
             <Route path="/testPage" element={<TestPage />} />
-            <Route path="/create-account" element={<CreateAccount />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/logintest" element={<LoginForm />} />
-            <Route path="/logintesttwo" element={<LoginForm2 />} />
+            <Route path="/criar_conta" element={<CreateAccount />} />
+            <Route path="/perfil" element={<Profile />} />
+            <Route path='/painel_de_controle' element={<TherapistPanel />} />
+            <Route path='/painel_de_controle/:compId' element={<TherapistPanel />} />
          </Routes>
       </BrowserRouter>
    )
