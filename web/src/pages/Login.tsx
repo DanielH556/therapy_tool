@@ -2,9 +2,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-// Importação de componentes
-import Navbar from '../components/Navbar'
-
 export default function Login() {
    // Instância de estados de CPF e Senha
    const [cpf, setCpf] = useState('');
@@ -19,7 +16,6 @@ export default function Login() {
    // Renderização de componente
    return(
       <div id="container">
-         <Navbar />
          <div className="container">
             <h1>Logo pog</h1>
          </div>

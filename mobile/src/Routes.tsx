@@ -6,8 +6,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Home from './screens/Home';
 import Test from './screens/Test';
 import Login from './screens/Login';
-import Task from './screens/Task';
+import TaskList from './screens/TaskList';
 import CreateTask from './screens/CreateTask';
+import DisplayTask from './screens/DisplayTask';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -18,8 +19,9 @@ export default function Routes() {
          <Screen name="Página Principal" component={Home} />
          <Screen name="Test" component={Test} />
          <Screen name="Login" component={Login} />
-         <Screen name="Tarefas" component={Task} />
+         <Screen name="Tarefas" component={TaskList} />
          <Screen name="Criar Tarefa" component={CreateTask} />
+         <Screen name="Tarefa" component={DisplayTask} />
       </Navigator>
    );
 };

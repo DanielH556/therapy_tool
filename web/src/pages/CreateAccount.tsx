@@ -1,13 +1,9 @@
 //Importação de bibliotecas
 import React from 'react';
 
-// Importação de componentes
-import Navbar from '../components/Navbar'
-
 export default function CreateAccount() {
    return(
       <div>
-         <Navbar />
          <div className="container-lg">
             <h1 className='display-2'>Criar Conta</h1>
          </div><br />
