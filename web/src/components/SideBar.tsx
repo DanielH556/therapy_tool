@@ -7,11 +7,11 @@ export default function SideMenu() {
    const [panel, setPanel] = useState(0);
 
    const menuItens = [
-      { compId: 1, name: 'Início', navigate: '/' },
-      { compId: 2, name: 'Dashboard', navigate: '/dashboard' },
-      { compId: 3, name: 'Questionários', navigate: '/questionary' },
-      { compId: 4, name: 'Configurações', navigate: '/settings' },
-      { compId: 5, name: 'Encerrar Sessão', navigate: '/logout' }
+      { compId: 'home', name: 'Início', navigate: '/' },
+      { compId: 'dashboard', name: 'Dashboard', navigate: '/dashboard' },
+      { compId: 'questionarios', name: 'Questionários', navigate: '/questionary' },
+      { compId: 'settings', name: 'Configurações', navigate: '/settings' },
+      { compId: 'logout', name: 'Encerrar Sessão', navigate: '/logout' }
    ];
 
    return(

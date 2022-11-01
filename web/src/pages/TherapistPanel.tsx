@@ -19,7 +19,8 @@ export default function TherapistPanel() {
                   <SideBar />
                </div>
                <div className='col-10'>
-                  PARAMETRO - {compId}
+                  {/* PARAMETRO - {compId} */}
+                  <TherapistInfoPanel activePanel={compId!} />
                </div>
             </div>
          </div>
