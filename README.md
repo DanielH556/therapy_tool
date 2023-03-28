@@ -47,3 +47,9 @@ Para o desenvolvimento da aplicação, foram utilizadas diversas tecnologias e f
 2. Se necessário, instalar as dependências do gerenciador de pacotes `$ npm install`
 3. Executar a aplicação no terminal `$ npm start`
  - Escanear código QR com aplicação "Expo Go"
+
+ ## Executar o servidor
+1. Entrar na pasta *server* `$ cd server/`
+2. Se necessário, instalar as dependências do gerenciador de pacotes `$ npm install`
+3. Executar o servidor no terminal `$ npm run dev`
+ - Certifique-se de que está no diretório "/server"

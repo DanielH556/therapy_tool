@@ -2,12 +2,18 @@
    "compilerOptions": {
      "sourceMap": true,
      "target": "es2017",
+     "module": "commonjs",
      "outDir": "./dist",
      "baseUrl": "./src",
+     "strict": true,   
      "alwaysStrict": true,
+     "strictPropertyInitialization": false,
      "noImplicitAny": true,
      "experimentalDecorators": true,
-     "emitDecoratorMetadata": true
+     "emitDecoratorMetadata": true,
+     "esModuleInterop": true,
+     "skipLibCheck": true,
+     "forceConsistentCasingInFileNames": true
    },
    "include": [
      "src/**/*.ts"
