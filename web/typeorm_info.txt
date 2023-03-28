@@ -1,0 +1,14 @@
+MÉTODOS E FUNÇÕES TYPEORM
+
+createQueryBuilder(${item}) => cria a query. Inserindo uma string dentro do parêntesis faz a query procurar o item dentro do parêntesis.
+         SELECT item ...
+
+.where(`${coluna} ${operação de validação =, <,...} ${valor procurado}`, {${valor procurado}}) => condição WHERE do sql
+         ... WHERE coluna = valor
+
+DataSource.find() => SELECT *
+DataSource.getOne() => SELECT item WHERE...
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+Nome da entidade / model no servidor (i.e. Pacientes) tem que ser o mesmo nome da tabela equivalente no SQL.

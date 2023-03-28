@@ -1,4 +1,4 @@
-import Patient from '../models/patient';
+import Pacientes from '../models/patient';
 import patientView from '../views/patientView';
 import database from '../repositories/database';
 import { DataSource } from 'typeorm';
@@ -7,16 +7,17 @@ import AppDataSource from '../config/dataSource';
 export default{
    async index() {
       console.log('acquiring patientRepo')
-      const patientRepo = await AppDataSource.getRepository(Patient)
+      const patientRepo = await AppDataSource.getRepository(Pacientes)
       console.log('patientRepo acquired')
-      // const patients = await patientRepo.createQueryBuilder()
-      //                   .select()
-      //                   .from(Patient, "patients")
-      //                   .getMany()
-      const patients = await patientRepo.find()
-      console.log('patients acquired')
-      // const patients = await AppDataSource.manager.find(Patient)
-      console.log(patients)
+      // const pacientes = await patientRepo.createQueryBuilder()
+      //                   .where("id = :patientId", { patientId: 1 })
+      //                   .getOne()
+      // console.log(`Patients: ${JSON.stringify(pacientes)}`)
+      // const patientsAfterQuery = await patientRepo.find()
+      // console.log(`PatientsAfterQuery: ${JSON.stringify(patientsAfterQuery)}`)
+      // console.log('patients acquired')
+      const patient = await AppDataSource.manager.find(Pacientes)
+      console.log(patient)
    }
 
    // async show(req: Request, res: Response) {

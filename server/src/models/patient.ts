@@ -1,8 +1,8 @@
 // Especificação de tipagem do objeto "Paciente"
 import { Column, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity('patients')
-export default class Patient {
+@Entity()
+export default class Pacientes {
    @PrimaryGeneratedColumn()
    id: number;
 

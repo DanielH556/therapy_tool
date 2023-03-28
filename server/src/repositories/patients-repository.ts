@@ -4,7 +4,7 @@ import database from "./database";
 const patientsRepository = {
    criar: (patient: Patient, callback: (id?: number) => void) => {
       const sql = 'INSERT INTO pacientes (nome, cpf, senha) VALUES (?,?,?)';
-      const params = [patient.name, patient.cpf, patient.password];
+      const params = [patient.nome, patient.cpf, patient.senha];
       database.run(sql, params, function(_err) {
          callback(this?.lastID);
       });
@@ -24,7 +24,7 @@ const patientsRepository = {
 
    atualizar: (id: number, patient: Patient, callback: (notFound: boolean) => void) => {
       const sql = 'UPDATE pacientes SET nome = ?, cpf = ? WHERE id = ?';
-      const params = [patient.name, patient.cpf, id];
+      const params = [patient.nome, patient.cpf, id];
       database.run(sql, params, function(_err) {
          callback(this.changes === 0);
       })

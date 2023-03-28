@@ -9,7 +9,7 @@ import routes from './router';
 import "reflect-metadata";
 
 // Definição e Instâncias de bibliotecas e porta
-const port = 3000;
+const port = 3333;
 const app = express();
 
 // app.use(express.static(path.join(__dirname, 'client/build')))
@@ -32,9 +32,7 @@ app.get('/', (req, res) => {
 })
 
 // Definição de URL
-app.use(cors({
-   origin: ['http://192.168.56.1:3000']
-}))
+app.use(cors())
 
 // Instância de rotas da aplicação
 app.use('/api', routes)
