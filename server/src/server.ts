@@ -2,8 +2,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import patientRouter from './routes/patient-router';
-// import './database/connection';
 import './config/dataSource';
 import routes from './router';
 import "reflect-metadata";
@@ -11,8 +9,6 @@ import "reflect-metadata";
 // Definição e Instâncias de bibliotecas e porta
 const port = 3333;
 const app = express();
-
-// app.use(express.static(path.join(__dirname, 'client/build')))
 
 // Função de Log do middleware
 function loggerMiddleware(request: express.Request, response: express.Response, next: () => void) {
@@ -26,7 +22,7 @@ app.use(bodyParser.json());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Path padrão
+// Path padrão do servidor
 app.get('/', (req, res) => {
    res.send('Hi');
 })
@@ -44,4 +40,4 @@ app.use((req, res) => {
 // Porta utilizada
 app.listen(port);
 
-console.log('App listening on port 3000');
+console.log(`App listening in port ${port}`);

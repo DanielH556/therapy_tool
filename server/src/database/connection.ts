@@ -1,5 +1,7 @@
+// Importação de bibliotecas
 import { DataSource } from 'typeorm';
 
+// Configuração da conexão com banco de dados
 const connection = new DataSource({
    // name: "firstconnection",
    // type: "mysql",
@@ -14,6 +16,7 @@ const connection = new DataSource({
    port: 3000
 })
 
+// Inicialização da conexão do banco de dados
 connection.initialize()
    .then(() => {
       console.log('Data Source Initialized');
