@@ -1,6 +1,7 @@
-// Especificação de tipagem do objeto "Paciente"
+// Importação de bibliotecas
 import { Column, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
+// Especificação de tipagem do objeto "Paciente"
 @Entity()
 export default class Pacientes {
    @PrimaryGeneratedColumn()
