@@ -33,6 +33,4 @@ btSerial.on("found", function (address, name) {
             console.log("found nothing");
         }
     );
-});
-
-btSerial.inquire();
+})
