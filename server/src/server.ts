@@ -6,8 +6,9 @@ import './config/dataSource';
 import routes from './router';
 import "reflect-metadata";
 
-// Definição e Instâncias de bibliotecas e porta
-const port = 3333;
+// Definição e Instâncias de bibliotecas, porta e IP
+const PORT = Number(process.env.PORT )|| 3000;
+const IP = process.env.IP || '0.0.0.0';
 const app = express();
 
 // Função de Log do middleware
@@ -31,13 +32,13 @@ app.get('/', (req, res) => {
 app.use(cors())
 
 // Instância de rotas da aplicação
-app.use('/api', routes)
+app.use('/', routes)
 
 app.use((req, res) => {
    res.status(404)
 });
 
 // Porta utilizada
-app.listen(port);
-
-console.log(`App listening in port ${port}`);
+app.listen(PORT, IP, () => {
+  console.log(`Server listening on ${IP}:${PORT}`);
+});

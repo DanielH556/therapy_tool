@@ -3,45 +3,34 @@ import { Column, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn } from 't
 
 // Especificação de tipagem do objeto "Paciente"
 @Entity()
-export default class Pacientes {
+export default class Paciente {
    @PrimaryGeneratedColumn()
-   id: number;
+   idpac: number;
 
    @Column()
-   nome: string;
+   nomepac: string;
+
+   @Column()
+   sobrepac: string;
 
    @Column()
    cpf: string;
 
    @Column()
+   idprof: number;
+
+   @Column()
+   email: string;
+
+   @Column()
    senha: string;
-   // @PrimaryGeneratedColumn()
-   // idPaciente: number;
 
-   // @Column()
-   // nomePaciente: string;
+   @Column({ type: 'datetime' })
+   nasc: Date;
 
-   // @Column()
-   // sobrenome: string;
+   @Column()
+   tel: string;
 
-   // @Column()
-   // cpf: string;
-
-   // @Column()
-   // email: string;
-
-   // @Column()
-   // senha: string;
-
-   // @Column()
-   // data_nasc: string;
-
-   // @Column()
-   // idProf: number;
-
-   // @Column()
-   // telefone: string;
-
-   // @Column()
-   // cep: string;
+   @Column()
+   cep: string;
 }
