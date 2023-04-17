@@ -65,5 +65,5 @@ export default{
          status: 'success',
          response: `Paciente de id ${idPaciente} apagado com sucesso!`
       });
-   },
+   }
 }

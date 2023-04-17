@@ -3,16 +3,16 @@ import Pacientes from "models/patient";
 export default {
    render(patient: Pacientes) {
       return {
-         id: patient.id,
-         name: patient.nome,
-         // surname: patient.surname,
+         id: patient.idpac,
+         name: patient.nomepac,
+         surname: patient.sobrepac,
          cpf: patient.cpf,
-         // email: patient.email,
+         email: patient.email,
          password: patient.senha,
-         // birth_date: patient.data_nasc,
-         // prof_id: patient.idProf,
-         // phone: patient.telefone,
-         // cep: patient.cep
+         birth_date: patient.nasc,
+         prof_id: patient.idprof,
+         phone: patient.tel,
+         cep: patient.cep
       }
    },
 
