@@ -1,5 +1,7 @@
 // Importação de Biblioteca
 import React from 'react';
+import TopBarLanding from '../components/TopBarLanding';
+import '../styles/Form.css';
 // import { useLocation } from 'react-router-dom';
 
 
@@ -10,14 +12,6 @@ export default function Profile() {
 
    // const data = location.state?.cpf;
    // const datapass = location.state?.password;
-
-   function profilePicHandle() {
-      const imageStr = (document.getElementById('profpic') as HTMLInputElement).value;
-
-      console.log(imageStr)
-
-      document.getElementById('profile_pic')?.setAttribute('src', `${imageStr}`)
-   }
 
 
    const samplePatient = {
@@ -62,57 +56,56 @@ export default function Profile() {
 
 
    return(
-      <div className="container-md">
-         <div className="container-md text-align-left">
-            <img id="profile_pic" alt="Profile" style={{height:200}} className="start-0"/>
-            <input type="file" name="profpic" id="profpic" className='col-auto form-control-lg start-0' accept='.jpeg,.jpg,.png' onChange={profilePicHandle} readOnly />
-         </div>
-         <br />
-         <div className='g-3'>
+      <div className="container-fluid p-0 m-0">
+         <TopBarLanding />
+         <h1 className='display-5 my-5'>Meu Perfil</h1>
+         <div className='mx-2 d-flex justify-content-center p-4' style={{ border: '5px solid #1F6EFD', borderRadius: '2% 2%' }}>
             <form>
                <div className="mb-3">
-                  <div className="row">
+                  <div className="row my-3 p-1">
                      <label className='col-1 form-label'>ID</label>
-                     <input type="text" name="id" id="id" className='col-4 form-control-sm' value={samplePatient.id} readOnly />
+                     <input type="text" name="id" id="id" className='col-1 form-control-md text-center' value={samplePatient.id} readOnly />
+                     <label className='col-2 form-label'>Nome</label>
+                     <input type="text" name="nome" id="nome" className='col-3 form-control-md text-center' value={samplePatient.name} readOnly />
+                     <label className='col-2 form-label'>Sobrenome</label>
+                     <input type="text" name="sobrenome" id="sobrenome" className='col-3 form-control-md text-center' value={samplePatient.surname} readOnly />
                   </div>
-                  <div className="row">
-                     <label className='col-1 form-label'>Nome</label>
-                     <input type="text" name="nome" id="nome" className='col-4 form-control-sm' value={samplePatient.name} readOnly />
-                     <label className='col-1 form-label'>Sobrenome</label>
-                     <input type="text" name="sobrenome" id="sobrenome" className='col-4 form-control-sm' value={samplePatient.surname} readOnly />
-                  </div>
-                  <div className="row">
+                  <div className="row my-3 p-1">
                      <label className='col-1 form-label'>CPF</label>
-                     <input type="text" name="cpf" id="cpf" className='col-4 form-control-sm' value={samplePatient.cpf} readOnly />
+                     <input type="text" name="cpf" id="cpf" className='col-3 form-control-md text-center' value={samplePatient.cpf} readOnly />
+                     <label className='col-2 form-label'>E-Mail</label>
+                     <input type="text" name="email" id="email" className='col-6 form-control-md text-center' value={samplePatient.email} readOnly />
                   </div>
-                  <div className="row">
-                     <label className='col-1 form-label'>E-Mail</label>
-                     <input type="text" name="email" id="email" className='col-4 form-control-sm' value={samplePatient.email} readOnly />
-                     <label className='col-1 form-label'>Senha</label>
-                     <input type="password" name="password" id="password" className='col-4 form-control-sm' value={samplePatient.password} readOnly />
+                  <div className="row p-1">
+                     <label className='col-2 form-label'>Senha</label>
+                     <input type="password" name="password" id="password" className='col-10 form-control-md text-center' value={samplePatient.password} readOnly />
                   </div>
-                  <div className="row">
-                     <label className='col-1 form-label'>Data de Nascimento</label>
-                     <input type="text" name="birthDate" id="birthDate" className='col-4 form-control-sm' value={samplePatient.birthDate} readOnly />
+                  <div className="row p-1">
+                     <label className='col-3 form-label'>Data de Nascimento</label>
+                     <input type="text" name="birthDate" id="birthDate" className='col-9 form-control-md' value={samplePatient.birthDate} readOnly />
                   </div>
-                  <div className="row">
-                     <label className='col-1 form-label'>ID Prof</label>
-                     <input type="text" name="idProf" id="idProf" className='col-4 form-control-sm' value={samplePatient.idProf} readOnly />
+                  <div className="row p-1" hidden>
+                     <label className='col-2 form-label'>ID Prof</label>
+                     <input type="text" name="idProf" id="idProf" className='col-1 form-control-md' value={samplePatient.idProf} readOnly />
                   </div>
-                  <div className="row">
-                     <label className='col-1 form-label'>Número de Telefone</label>
-                     <input type="text" name="numtel" id="numtel" className='col-4 form-control-sm' value={samplePatient.phoneNumber} readOnly />
+                  <div className="row p-1">
+                     <label className='col-4 form-label'>Psicólogo / Terapeuta</label>
+                     <input type="text" name="idProf" id="idProf" className='col-8 form-control-md text-center' placeholder='Nome do terapeuta' readOnly />
                   </div>
-                  <div className="row">
-                     <label className='col-1 form-label'>CEP</label>
-                     <input type="text" name="cep" id="cep" className='col-4 form-control-sm' value={samplePatient.cep} readOnly />
+                  <div className="row p-1">
+                     <label className='col-4 form-label'>Número de Telefone</label>
+                     <input type="text" name="numtel" id="numtel" className='col-8 form-control-md text-center' value={samplePatient.phoneNumber} readOnly />
                   </div>
-                  {/* <div className="row">
-                     <label className='col-1 form-label'>CRM</label>
+                  <div className="row p-1">
+                     <label className='col-2 form-label'>CEP</label>
+                     <input type="text" name="cep" id="cep" className='col-10 form-control-md text-center' value={samplePatient.cep} readOnly />
+                  </div>
+                  {/* <div className="row p-1">
+                     <label className='col-2 form-label'>CRM</label>
                      <input type="text" name="crm" id="crm" className='col-4' value={sampleProfessional.crm} readOnly />
                   </div>
-                  <div className="row">
-                     <label className='col-1 form-label'>Data</label>
+                  <div className="row p-1">
+                     <label className='col-2 form-label'>Data</label>
                      <input type="text" name="data" id="data" className='col-4' value={sampleTask.date} readOnly />
                   </div>*/}
                </div> 

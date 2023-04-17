@@ -15,7 +15,7 @@ export default function TopBar() {
       <div className="container-fluid bg-primary">
          <nav className='navbar navbar-expand-lg'>
             <div className="container-md">
-               <a className='navbar-brand' href='/'>Home</a>
+               <a className='navbar-brand text-white' href='/'>Tool Anxiety</a>
 
                <button className="navbar-toggler" type='button' data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <span className="navbar-toggler-icon"></span>
@@ -24,7 +24,7 @@ export default function TopBar() {
                <div className="collapse navbar-collapse" id='navbarNav'>
                   <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
                      <li className="nav-item">
-                        <a href="/" className="nav-link active" aria-current="page">Página Principal</a>
+                        <a href="/" className="nav-link active text-white" aria-current="page">Página Principal</a>
                      </li>
                   </ul>
                </div>

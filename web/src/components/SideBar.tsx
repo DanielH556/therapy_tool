@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import React from 'react';
+// import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import '../styles/SideBar.css'
 
 export default function SideMenu() {
-   const [panel, setPanel] = useState(0);
+   // const [panel, setPanel] = useState(0);
 
    const menuItens = [
       { compId: 'home', name: 'Início', navigate: '/' },
