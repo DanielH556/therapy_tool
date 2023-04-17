@@ -1,6 +1,7 @@
 // Importação de bibliotecas
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import TopBarLanding from "../components/TopBarLanding";
 
 export default function Login() {
    // Instância de estados de CPF e Senha
@@ -16,27 +17,28 @@ export default function Login() {
    // Renderização de componente
    return(
       <div id="container">
+         <TopBarLanding />
          <div className="container">
-            <h1>Logo pog</h1>
+            <h1>Tool Anxiety</h1>
          </div>
-         <div className="container border">
+         <div className="container p-3"  style={{ border: '5px solid #1F6EFD', borderRadius: '1% 1%' }}>
             <form action="/testPage" id="loginForm">
-               <div className="col">
+               <div className="col my-3">
                   <label className="form-label">CPF: </label>
-                  <input type="text" id="cpf" className="form-control" name="cpf" onChange={handleChange}/>
+                  <input type="text" id="cpf" className="form-control text-center" name="cpf" onChange={handleChange}/>
                </div>
-               <div className="col">
+               <div className="col my-3">
                   <label className="form-label">Senha: </label>
-                  <input type="password" id="senha" className="form-control" name="senha" onChange={handleChange}/>
+                  <input type="password" id="senha" className="form-control text-center" name="senha" onChange={handleChange}/>
                </div>
             </form>
 
             {/* Sessão de botões */}
-            <div className="col g-3">
-               <Link to="/create-account" className="btn btn-primary" type="submit">
+            <div className="col g-3 center">
+               <Link to="/criar_conta" className="btn btn-primary mx-3" type="submit">
                   Criar Conta
                </Link>
-               <Link className="btn btn-primary" to="/profile" state={{cpf: cpf, password: password}}>
+               <Link className="btn btn-primary mx-3" to="/perfil" state={{cpf: cpf, password: password}}>
                   Login
                </Link>
                <br /><br />
