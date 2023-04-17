@@ -7,7 +7,7 @@ import routes from './router';
 import "reflect-metadata";
 
 // Definição e Instâncias de bibliotecas, porta e IP
-const PORT = Number(process.env.PORT )|| 3000;
+const PORT = Number(process.env.PORT )|| 443;
 const IP = process.env.IP || '0.0.0.0';
 const app = express();
 
@@ -29,7 +29,15 @@ app.get('/', (req, res) => {
 })
 
 // Definição de URL
-app.use(cors())
+// app.use(cors())
+app.use((req, res, next) => {
+   res.setHeader('Access-Control-Allow-Origin', '*');
+   res.header(
+      'Access-Control-Allow-Headers',
+      'Origin, X-Requested-With, Content-Type, Accept'
+   );
+   next();
+})
 
 // Instância de rotas da aplicação
 app.use('/', routes)
