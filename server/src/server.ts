@@ -9,6 +9,7 @@ import "reflect-metadata";
 // Definição e Instâncias de bibliotecas, porta e IP
 const PORT = Number(process.env.PORT )|| 443;
 const IP = process.env.IP || '0.0.0.0';
+
 const app = express();
 
 // Função de Log do middleware
