@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import Paciente from '../models/patient';
 import AppDataSource from '../config/dataSource';
+import { createQueryBuilder } from 'typeorm';
 
 export default{
    // Mostrar todos os pacientes
@@ -20,12 +21,24 @@ export default{
       response.send(paciente)
    },
 
+   async checkCred(request: Request, response: Response) {
+      const cpfCred = request.params.cpf;
+      const passwordCred = request.params.password;
+      const prof = await AppDataSource.manager.findOne(Paciente, {
+         where: {
+            cpf: cpfCred,
+            senha: passwordCred,
+         }
+      })
+      response.send(prof)
+   },
+
    // Criar uma nova Entry na tabela "paciente"
    async create(request: Request, response: Response) {
-      const { nomepaciente, sobrepaciente, cpf, idprofissional, email, senha, datanascimento, telefone, cep } = request.body;
+      const { nome, sobrenome, cpf, idprofissional, email, senha, datanascimento, telefone, cep } = request.body;
       const paciente = await AppDataSource.manager.insert(Paciente, { 
-         nomepac: nomepaciente,
-         sobrepac: sobrepaciente,
+         nomepac: nome,
+         sobrepac: sobrenome,
          cpf: cpf,
          idprof: idprofissional,
          email: email,
@@ -38,8 +51,8 @@ export default{
       response.status(201).json({
          status: "success",
          data: {
-            nomepac: nomepaciente,
-            sobrepac: sobrepaciente,
+            nomepac: nome,
+            sobrepac: sobrenome,
             cpf: cpf,
             idprof: idprofissional,
             email: email,
