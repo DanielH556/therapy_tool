@@ -10,18 +10,17 @@ export default function SideMenu() {
    const menuItens = [
       { compId: 'home', name: 'Início', navigate: '/' },
       { compId: 'dashboard', name: 'Dashboard', navigate: '/dashboard' },
-      { compId: 'questionarios', name: 'Questionários', navigate: '/questionary' },
       { compId: 'settings', name: 'Configurações', navigate: '/settings' },
       { compId: 'logout', name: 'Encerrar Sessão', navigate: '/logout' }
    ];
 
    return(
-      <div className="container-fluid bg-dark" style={{height: '100vh'}}>
+      <div className="container-fluid bg-dark m-0 p-0" style={{height: '100vh', width: '200px'}}>
          <ul className='list-group list-group-flush bg-transparent'>
             {
                menuItens.map((key, index) => {
-                  return <div className='itemLink'>
-                     <Link className="list-group-item bg-transparent text-white p-3" to={`/painel_de_controle/${key.compId}`} >{ key.name }</Link>
+                  return <div key={key.compId} className='itemLink'>
+                     <Link key={key.compId} className="list-group-item bg-transparent text-white p-3" to={`/painel_de_controle/${key.compId}`} >{ key.name }</Link>
                   </div> 
                })
             }
