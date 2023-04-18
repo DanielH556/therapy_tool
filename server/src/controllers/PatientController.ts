@@ -1,12 +1,13 @@
 import { Request, Response } from 'express';
 import Paciente from '../models/patient';
-// import database from '../repositories/database';
 import AppDataSource from '../config/dataSource';
 
 export default{
    // Mostrar todos os pacientes
    async index(request: Request, response: Response) {
+      console.log('Starting index patient')
       const paciente = await AppDataSource.manager.find(Paciente)
+      console.log('Finishing index patient')
       response.send(paciente)
    },
 
@@ -65,5 +66,5 @@ export default{
          status: 'success',
          response: `Paciente de id ${idPaciente} apagado com sucesso!`
       });
-   },
+   }
 }

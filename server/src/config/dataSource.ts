@@ -4,8 +4,12 @@ import { DataSource } from 'typeorm';
 
 // Configuração da Database e suas entidades
 const AppDataSource = new DataSource({
-   type: 'sqlite',
-   database: './db.sqlite',
+   type: 'mysql',
+   host: `localhost`,
+   port: 3306,
+   database: 'tcc',
+   username: 'root',
+   password: 'bl+;D9g4Vh4P+4',
    entities: [ path.join(__dirname, '..', 'models', '*.ts') ], // Diretório dos modelos
 })
 
