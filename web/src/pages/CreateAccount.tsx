@@ -6,9 +6,10 @@ import api from '../services/api';
 
 interface Patient {
    idpac: number;
-   nomepaciente: string;
-   sobrepaciente: string;
+   nome: string;
+   sobrenome: string;
    cpf: string;
+   cargo: number;
    email: string;
    senha: string;
    datanascimento: string;
@@ -19,15 +20,17 @@ interface Patient {
 export default function CreateAccount() {
    const [patient, setPatient] = useState<Patient>({
       idpac: 11,
-      nomepaciente: '',
-      sobrepaciente: '',
+      nome: '',
+      sobrenome: '',
       cpf: '',
+      cargo: 1,
       email: '',
       senha: '',
       datanascimento: '',
       telefone: '',
       cep: '',
     });
+    const [cargo, setCargo] = useState('');
 
    const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
       const { name, value } = event.target;
@@ -37,16 +40,31 @@ export default function CreateAccount() {
       }))
    }
 
+   const handleRole = (event: ChangeEvent<HTMLSelectElement>) => {
+      const role = event.target;
+      setCargo(role.value);
+   }
+
    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault();
 
-      api.post('novoPaciente', patient)
+      if (cargo === 'paciente') {  
+         api.post('novoPaciente', patient)
          .then((response) => {
             console.log(response);
          })
          .catch((err) => {
             console.log(err)
          })
+      } else if (cargo === 'terapeuta') {
+         api.post('novoProfissional', patient)
+         .then((response) => {
+            console.log(response);
+         })
+         .catch((err) => {
+            console.log(err)
+         })
+      }
    }
       
    return(
@@ -62,18 +80,26 @@ export default function CreateAccount() {
                <div className='row my-3'>
                   <div className='col'>
                      <label htmlFor="" className='form-label'>Nome</label>
-                     <input type="text" name="nomepaciente" id="nomepaciente" className='form-control' value={patient.nomepaciente} onChange={handleInputChange} required/>
+                     <input type="text" name="nome" id="nome" className='form-control' value={patient.nome} onChange={handleInputChange} required/>
                   </div>
                   <div className='col'>
                      <label htmlFor="" className='form-label'>Sobrenome</label>
-                     <input type="text" name="sobrepaciente" id="sobrepaciente" className='form-control' value={patient.sobrepaciente} onChange={handleInputChange} required/>
+                     <input type="text" name="sobrenome" id="sobrenome" className='form-control' value={patient.sobrenome} onChange={handleInputChange} required/>
                   </div>
                </div>
-               <div className='my-3'>
-                  <label htmlFor="" className='form-label'>CPF</label>
-                  <input type="text" name="cpf" id="cpf" className='form-control' value={patient.cpf} onChange={handleInputChange} required />
+               <div className='row my-3'>
+                  <div className='col'>
+                     <label htmlFor="" className='form-label'>CPF</label>
+                     <input type="text" name="cpf" id="cpf" className='form-control' value={patient.cpf} onChange={handleInputChange} required />
+                  </div>
+                  <div className='col'>
+                        <label htmlFor="" className='form-label'>Cargo</label>
+                        <select name="cargo" id="cargo" className='form-select' onChange={handleRole} required>
+                           <option value="paciente">Paciente</option>
+                           <option value="terapeuta">Profissional</option>
+                        </select>
+                  </div>
                </div>
-
                <div className='my-3'>
                   <label htmlFor="" className='form-label'>E-Mail</label>
                   <input type="text" name="email" id="email" className='form-control' value={patient.email} onChange={handleInputChange} required />

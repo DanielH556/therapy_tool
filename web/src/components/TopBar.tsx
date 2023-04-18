@@ -31,10 +31,10 @@ export default function TopBar() {
 
                <div className="text-center">
                   <select name="patients" id="patients" className='form-select'>
-                     <option disabled selected>Escolher paciente</option>
+                     <option key={'f'} disabled>Escolher paciente</option>
                      {
                         patients.map((key, index) => {
-                           return <option value={ key.id }>{ key.name }</option>
+                           return <option key={key.id} value={ key.id }>{ key.name }</option>
                         })
                      }
                   </select>

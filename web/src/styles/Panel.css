@@ -1,0 +1,9 @@
+div.panel {
+   height: 18.4em;
+   margin-bottom: 3%;
+   padding: 3%;
+   /* background-color: rgba(182, 182, 182, 0.445); */
+   display: flexbox;
+   align-items: center;
+   justify-content: center;
+}

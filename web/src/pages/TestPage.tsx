@@ -1,31 +1,59 @@
-import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import { useState } from 'react';
+import { useEffect } from "react";
+import { useState } from "react";
 import api from "../services/api";
 
-interface Posts {
-   userId: number,
-   id: number,
-   title: string,
-   body: string
-}
-export default function TestPage() {
-   // Instância de função de localização de estados
-   const location = useLocation();
-   const [posts, setPosts] = useState('');
-   
-   // TO-DO Fazer mostrar o wordcloud direitinho
-   useEffect(() => {
-      const fetchImage = async () => {
-         const response = await api.get('/wordcloud/1', { responseType: 'arraybuffer' })
-         const data = new Uint8Array(response.data);
-         const blob = new Blob([data], { type: response.headers['content-type'] });
-         const buffer = await blob.arrayBuffer();
-         const bytes = new Uint8Array(buffer);
-      }
+interface ImageData {
+   data: ArrayBuffer;
+   contentType: string;
+ }
 
-      fetchImage()
-   }, [])
+export default function TestPage() {    
+    async function getImageData(url: string): Promise<ImageData> {
+      const response = await api.get(url, {
+        responseType: 'arraybuffer',
+      });
+    
+      const contentType = response.headers['content-type'];
+      const data = response.data;
+    
+      return { data, contentType };
+    }
+    
+    function arrayBufferToBase64(buffer: ArrayBuffer): string {
+      if (typeof TextEncoder === 'function') {
+         return 'pascal do meu anal'
+      } else {
+      let binary = '';
+      const bytes = new Uint8Array(buffer);
+      const len = bytes.byteLength;
+    
+      for (let i = 0; i < len; i++) {
+        binary += String.fromCharCode(bytes[i]);
+      }
+      console.log('binary: ', binary)
+
+      return btoa(binary)
+    }}
+
+    const [imageSrc, setImageSrc] = useState<string>();
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const imageData = await getImageData('wordcloud/1');
+        const base64Image = arrayBufferToBase64(imageData.data);
+
+        setImageSrc(`data:${imageData.contentType};base64,${base64Image}`);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    fetchData();
+  }, []);
+
+   // "http://20.226.102.6:443/wordcloud/1"
+   // TO-DO Fazer mostrar o wordcloud direitinho
    // console.log(location, " useLocation Hook")
    
    // const data = location.state?.cpf;
@@ -36,8 +64,7 @@ export default function TestPage() {
       <div>
          <h1>Test Page</h1>
          <div>
-         {JSON.stringify(posts, null, 2)}
-         <img src={posts} alt="aaaaaaaaaaaaaa" className="s" />
+         <img src={imageSrc} width={1600} height={800} alt="Example Image" />
          </div>
       </div>
    )
