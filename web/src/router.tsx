@@ -16,10 +16,11 @@ export default function Router() {
          <Routes>
             {/* Rotas para cada página */}
             <Route path="/" element={<Landing />} />
-            <Route path="/login" element={<Login />}></Route>
+            <Route path="/login" element={<Login />} />
             <Route path="/testPage" element={<TestPage />} />
             <Route path="/criar_conta" element={<CreateAccount />} />
             <Route path="/perfil" element={<Profile />} />
+            <Route path="/perfil/:id" element={<Profile />} />
             <Route path='/painel_de_controle' element={<TherapistPanel />} />
             <Route path='/painel_de_controle/:compId' element={<TherapistPanel />} />
          </Routes>

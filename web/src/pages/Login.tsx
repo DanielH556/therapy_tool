@@ -1,5 +1,5 @@
 // Importação de bibliotecas
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
 import { Link } from "react-router-dom";
 import TopBarLanding from "../components/TopBarLanding";
 
@@ -14,6 +14,14 @@ export default function Login() {
       setPassword((document.getElementById('senha') as HTMLInputElement).value)
    }
 
+   function handleSubmit(event: FormEvent) {
+      event.preventDefault();
+
+      const loginData = new FormData();
+
+      loginData.append('cpf', cpf);
+      loginData.append('password', password);
+   }
    // Renderização de componente
    return(
       <div id="container">

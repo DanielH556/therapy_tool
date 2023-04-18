@@ -7,7 +7,7 @@ import routes from './router';
 import "reflect-metadata";
 
 // Definição e Instâncias de bibliotecas e porta
-const port = 3333;
+const port = 3000;
 const app = express();
 
 // Função de Log do middleware
@@ -38,6 +38,6 @@ app.use((req, res) => {
 });
 
 // Porta utilizada
-app.listen(port);
+app.listen(port, '0.0.0.0');
 
 console.log(`App listening in port ${port}`);

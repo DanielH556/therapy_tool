@@ -5,7 +5,7 @@ import TopBar from '../components/TopBar';
 import SideBar from '../components/SideBar';
 import TherapistInfoPanel from '../components/TherapistInfoPanel';
 
-
+// TO-DO Trazer as informações da API pra colocar no painel (wordcloud, gráficos, etc.)
 
 export default function TherapistPanel() {
    const { compId } = useParams();
