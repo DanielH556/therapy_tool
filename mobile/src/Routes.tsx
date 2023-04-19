@@ -6,9 +6,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Home from './screens/Home';
 import Test from './screens/Test';
 import Login from './screens/Login';
-import TaskList from './screens/TaskList';
-import CreateTask from './screens/CreateTask';
-import DisplayTask from './screens/DisplayTask';
+import CreateAccount from './screens/CreateAccount';
+import Landing from './screens/Landing';
+import Feedback from './screens/Feedback';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -17,11 +17,11 @@ export default function Routes() {
       // Rotas da aplicação
       <Navigator initialRouteName='Home'>
          <Screen name="Página Principal" component={Home} />
+         <Screen name="Landing" component={Landing} />
          <Screen name="Test" component={Test} />
          <Screen name="Login" component={Login} />
-         <Screen name="Tarefas" component={TaskList} />
-         <Screen name="Criar Tarefa" component={CreateTask} />
-         <Screen name="Tarefa" component={DisplayTask} />
+         <Screen name="Criar Conta" component={CreateAccount} />
+         <Screen name="Feedback" component={Feedback} />
       </Navigator>
    );
 };
