@@ -6,20 +6,20 @@ export default function Login() {
    return(
       <Center display={'flex'} alignItems='center' borderColor={'gray.600'} justifyContent='center'>
          <Heading>Fazer Login</Heading>
-         <Box alignItems='center' width={300}>
+         <Box alignItems='center' width={'90%'}>
             <FormControl isRequired>
                <FormControl.Label>CPF: </FormControl.Label>
-               <Input placeholder='Insira seu nº de CPF' />
+               <Input size={'lg'} placeholder='Insira seu nº de CPF' />
             </FormControl>
             <FormControl isRequired>
                <FormControl.Label>Senha: </FormControl.Label>
-               <Input placeholder='Insira sua senha' />
+               <Input size={'lg'} placeholder='Insira sua senha' />
             </FormControl>
          </Box>
 
          <Stack direction={'row'}>
-            <Button margin={10}>Entrar</Button>
-            <Button margin={10}>Criar Conta</Button>
+            <Button height={'40%'} width={'20%'} margin={10}>Entrar</Button>
+            <Button height={'40%'} width={'20%'} margin={10}>Criar Conta</Button>
          </Stack>
       </Center>
    );

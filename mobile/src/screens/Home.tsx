@@ -11,9 +11,9 @@ export default function Home({ navigation }: { navigation: StackNavigationProp<a
    const pages = [
       { name: 'Test', icon: <Foundation name="clipboard-notes" size={40} color="black" /> },
       { name: 'Login', icon: <AntDesign name="poweroff" size={40} color="black" /> },
-      { name: 'Tarefas', icon: <FontAwesome5 name="tasks" size={40} color="black" /> },
       { name: 'Criar Conta', icon: <AntDesign name="addusergroup" size={40} color="black" /> },
-      { name: 'Criar Tarefa', icon: <MaterialIcons name="add-task" size={40} color="black" /> }
+      { name: 'Landing', icon: <MaterialIcons name="add-task" size={40} color="black" /> },
+      { name: 'Feedback', icon: <MaterialIcons name="add-task" size={40} color="black" /> },
    ]
 
    return(
