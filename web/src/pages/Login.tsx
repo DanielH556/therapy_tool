@@ -8,7 +8,6 @@ export default function Login() {
    // Instância de estados de CPF e Senha
    const [cpf, setCpf] = useState('');
    const [password, setPassword] = useState('');
-   const [isValid, setIsValid] = useState(false)
    const navigate = useNavigate();
 
    // Função de troca de estado quando o campo "CPF" e o campo "Senha" mudarem de valor
@@ -17,12 +16,13 @@ export default function Login() {
       setPassword((document.getElementById('senha') as HTMLInputElement).value)
    }
 
+   // Gerenciamento de envio de formulário de Login
    function handleSubmit(event: FormEvent) {
       event.preventDefault();
 
       const loginData = async () => {
          console.log(`CPF e Senha: ${cpf} | ${password}`)
-         const checkData = await api.get(`paciente/${cpf}/${password}`)
+         const checkData = await api.get(`profissional/${cpf}/${password}`)
             .then(response => {
                console.log(`response: ${JSON.stringify(response)}`)
                return response.data
@@ -31,12 +31,12 @@ export default function Login() {
             if (!checkData) {
                alert('Dados inválidos')
             } else {
-               setIsValid(true);
-               navigate(`/perfil/${checkData.idpac}`)
+               navigate(`/perfil/${checkData.idprof}`)
             }
          }
          loginData()
    }
+   
    // Renderização de componente
    return(
       <div id="container">

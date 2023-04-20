@@ -8,10 +8,8 @@ export default function SideMenu() {
    // const [panel, setPanel] = useState(0);
 
    const menuItens = [
-      { compId: 'home', name: 'Início', navigate: '/' },
       { compId: 'dashboard', name: 'Dashboard', navigate: '/dashboard' },
-      { compId: 'settings', name: 'Configurações', navigate: '/settings' },
-      { compId: 'logout', name: 'Encerrar Sessão', navigate: '/logout' }
+      { compId: 'patient', name: 'Paciente', navigate: '/patient' }
    ];
 
    return(

@@ -4,6 +4,7 @@ import '../styles/Form.css'
 import TopBarLanding from '../components/TopBarLanding';
 import api from '../services/api';
 
+// Configuração de tipagem de dados para a entidade "Paciente"
 interface Patient {
    idpac: number;
    nome: string;
@@ -32,6 +33,7 @@ export default function CreateAccount() {
     });
     const [cargo, setCargo] = useState('');
 
+   // Troca de valor dos campos do formulário para envio
    const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
       const { name, value } = event.target;
       setPatient(prevPatient => ({
@@ -40,14 +42,18 @@ export default function CreateAccount() {
       }))
    }
 
+   // Gerenciamento de troca de valor do campo "Cargo"
    const handleRole = (event: ChangeEvent<HTMLSelectElement>) => {
       const role = event.target;
       setCargo(role.value);
    }
 
+   // Gerenciamento de envio de formulário de Criação de Conta
    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault();
 
+      // Se o cargo selecionado for 'paciente', executar o POST para a tabela 'paciente';
+      // Senão, se o cargo selecionado for 'terapeuta', executar o POST para a tabela 'profissional';
       if (cargo === 'paciente') {  
          api.post('novoPaciente', patient)
          .then((response) => {

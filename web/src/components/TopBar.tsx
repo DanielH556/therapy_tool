@@ -1,15 +1,43 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import '../styles/TopBar.css'
+import api from '../services/api';
+
+interface Pacientes {
+   idpac: string,
+   nomepac: string,
+   sobrepac: string
+}
 
 export default function TopBar() {
-   const patients = [
-      { id: 1, name: 'Daniel Eiji Hattori Hossaki' },
-      { id: 2, name: 'Ryan Vieira de Queiroz' },
-      { id: 3, name: 'Thiago Cabral Lemos' },
-      { id: 4, name: 'Nayron José dos Santos' },
-      { id: 5, name: 'Paulo Silveira' }
-   ]
+   const [pacientes, setPacientes] = useState<Pacientes>({
+      idpac: '',
+      nomepac: '',
+      sobrepac: ''
+   })
+   const [patientInd, setPatientInd] = useState('')
+   
+   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+      setPatientInd(event.target.value)
+   }
+
+   useEffect(() => {
+      const fetchPatients = async () => {
+         const patients = await api.get(`paciente`)
+            .then(response => {
+               console.log(`response.data.idpac: ${JSON.stringify(response.data[1].idpac)}`)
+               setPacientes(response.data)
+               Object.keys(response.data).forEach((key, index) => {
+                  console.log(`${key}: ${JSON.stringify(response.data[key])}`)
+               })
+               return response.data
+            })
+            console.log(`patients: ${JSON.stringify(patients)}`)
+            return patients
+      }
+      fetchPatients()
+   }, [patientInd])
+
 
    return(
       <div className="container-fluid bg-primary">
@@ -30,11 +58,13 @@ export default function TopBar() {
                </div>
 
                <div className="text-center">
-                  <select name="patients" id="patients" className='form-select'>
+                  <select name="patients" id="patients" className='form-select' value={patientInd} onChange={handleChange}>
                      <option key={'f'} disabled>Escolher paciente</option>
                      {
-                        patients.map((key, index) => {
-                           return <option key={key.id} value={ key.id }>{ key.name }</option>
+                        Object.values(pacientes).map((key, index) => {
+                           return <option key={ Number(key.idpac) } value={ Number(key.idpac) }>
+                                 { key.nomepac } { key.sobrepac }
+                              </option>
                         })
                      }
                   </select>
