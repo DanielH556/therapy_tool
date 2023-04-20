@@ -1,14 +1,30 @@
-import { useNavigation } from '@react-navigation/native';
-import React from 'react';
-import { View, Text, } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, Alert } from 'react-native';
+import { Heading } from 'native-base';
 import { BorderlessButton } from 'react-native-gesture-handler';
+import api from '../services/api';
 
 export default function Test() {
-   const navigation = useNavigation();
+   const [patient, setPatient] = useState({})
+
+   useEffect(() => {
+      const fetchPatient = async () => {
+         try {
+            const patientData = await api.get(`paciente`)
+            setPatient(patientData.data)
+            return patientData.data
+         } catch (error) {
+            console.log(`An error has ocurred: ${error}`)
+         }
+      }
+      console.log(patient)
+      fetchPatient()
+   }, [])
    
    return(
       <View>
-         <Text>Test Screen</Text>
+         <Heading>Test Screen</Heading>
+         <Text>Patient: {JSON.stringify(patient)}</Text>
       </View>
    );
 }
