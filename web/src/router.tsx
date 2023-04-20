@@ -9,6 +9,7 @@ import CreateAccount from './pages/CreateAccount';
 import Profile from './pages/Profile';
 import Landing from './pages/Landing';
 import TherapistPanel from './pages/TherapistPanel'
+import Dashboard from './components/Dashboard';
 
 export default function Router() {
    return(
@@ -19,10 +20,13 @@ export default function Router() {
             <Route path="/login" element={<Login />} />
             <Route path="/testPage" element={<TestPage />} />
             <Route path="/criar_conta" element={<CreateAccount />} />
+
             <Route path="/perfil" element={<Profile />} />
             <Route path="/perfil/:id" element={<Profile />} />
+            
             <Route path='/painel_de_controle' element={<TherapistPanel />} />
             <Route path='/painel_de_controle/:compId' element={<TherapistPanel />} />
+            <Route path='/painel_de_controle/dashboard/:idpac' element={<Dashboard />} />
          </Routes>
       </BrowserRouter>
    )

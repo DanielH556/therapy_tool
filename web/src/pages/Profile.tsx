@@ -5,6 +5,7 @@ import '../styles/Form.css';
 import { useParams } from 'react-router-dom';
 import api from '../services/api';
 
+// Configuração de tipagem de variáveis e dados
 interface Patient {
    idpac: number,
    nomepac: string,
@@ -23,26 +24,24 @@ type PatientParams = {
 }
 
 export default function Profile() {
-   const params = useParams<PatientParams>();
-   const [patient, setPatient] = useState<Patient>({} as Patient); 
+   const params = useParams<PatientParams>(); // Pega os valores dos parâmetros na URL
+   const [patient, setPatient] = useState<Patient>({} as Patient);
    const [loading, setLoading] = useState(true);
 
-   useEffect(() => {
-      console.log('entering useEffect hook')
-      const fetchPatient = async () => {
-         try {
-            console.log('starting fetch...')
-            const response = await api.get(`paciente/${params.id}`)
-            console.log(response)
-            setPatient(response.data)
-            setLoading(false)
-         } catch (err) { console.error('Error fetching patient data: ', err) }
-      }
-      fetchPatient()
-      console.log('exiting useEffect hook')
-   }, [params.id]);
+   // Execução contínua onLoad
+   // useEffect(() => {
+   //    const fetchPatient = async () => {
+   //       try {
+   //          const response = await api.get(`paciente/${params.id}`) // Request GET
+   //          console.log(response)
+   //          setPatient(response.data)
+   //          setLoading(false)
+   //       } catch (err) { console.error('Error fetching patient data: ', err) }
+   //    }
+   //    fetchPatient()
+   // }, [params.id]); // Sempre que houver uma mudança no id nos parâmetros, executar este hook.
 
-   console.log(patient, " patient state")
+   // Mensagem de feedback enquanto o backend retorna a request
    if (loading) {
       return <p>Carregando...</p>
    }
