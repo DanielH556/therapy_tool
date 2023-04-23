@@ -1,14 +1,11 @@
 import { Request, Response } from 'express';
 import Paciente from '../models/patient';
 import AppDataSource from '../config/dataSource';
-import { createQueryBuilder } from 'typeorm';
 
 export default{
    // Mostrar todos os pacientes
    async index(request: Request, response: Response) {
-      console.log('Starting index patient')
       const paciente = await AppDataSource.manager.find(Paciente)
-      console.log('Finishing index patient')
       response.send(paciente)
    },
 
