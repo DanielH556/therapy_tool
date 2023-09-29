@@ -1,4 +1,5 @@
-# Ferramenta de Auxílio a Terapia de Ansiedade (Nome Sujeito a Mudança)
+# Ferramenta de Auxílio a Terapia de Ansiedade 
+
 
 Aplicação Web projetada com o objetivo de auxiliar profissionais da área de psicologia no tratamento de clientes diagnosticados com transtorno de ansiedade.
 
